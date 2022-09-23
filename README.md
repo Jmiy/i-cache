@@ -13,7 +13,7 @@ composer require jmiy/i-cache
 创建配置文件
 
 ```shell
-php bin/hyperf.php vendor:publish limingxinleo/i-cache
+php bin/hyperf.php vendor:publish jmiy/i-cache
 ```
 
 配置如下
