@@ -560,8 +560,9 @@ class Repository implements ArrayAccess, CacheContract
      *
      * @param string $key
      * @param mixed $value
+     * @return void
      */
-    public function offsetSet($key, $value)
+    public function offsetSet($key, $value): void
     {
         $this->put($key, $value, $this->default);
     }
@@ -570,8 +571,9 @@ class Repository implements ArrayAccess, CacheContract
      * Remove an item from the cache.
      *
      * @param string $key
+     * @return void
      */
-    public function offsetUnset($key)
+    public function offsetUnset($key): void
     {
         $this->forget($key);
     }
