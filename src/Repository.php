@@ -17,7 +17,7 @@ use Carbon\Carbon;
 use Closure;
 use DateTimeInterface;
 use Hyperf\Utils\InteractsWithTime;
-use Hyperf\Utils\Traits\Macroable;
+use Hyperf\Macroable\Macroable;
 use Illuminate\Cache\Contracts\Repository as CacheContract;
 use Illuminate\Cache\Contracts\Store;
 use Illuminate\Cache\Events\CacheHit;
