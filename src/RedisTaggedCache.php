@@ -35,7 +35,7 @@ class RedisTaggedCache extends TaggedCache
      * @param null|\DateInterval|\DateTimeInterface|int $ttl
      * @return bool
      */
-    public function put($key, $value, $ttl = null)
+    public function put($key, $value, $ttl = null): bool
     {
         if ($ttl === null) {
             return $this->forever($key, $value);
