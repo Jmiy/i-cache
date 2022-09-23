@@ -96,7 +96,7 @@ class Repository implements ArrayAccess, CacheContract
      * @param string $key
      * @return bool
      */
-    public function has($key)
+    public function has($key): bool
     {
         return ! is_null($this->get($key));
     }
@@ -107,7 +107,7 @@ class Repository implements ArrayAccess, CacheContract
      * @param string $key
      * @return bool
      */
-    public function missing($key)
+    public function missing($key): bool
     {
         return ! $this->has($key);
     }
@@ -119,7 +119,7 @@ class Repository implements ArrayAccess, CacheContract
      * @param mixed $default
      * @return mixed
      */
-    public function get($key, $default = null)
+    public function get($key, $default = null): mixed
     {
         if (is_array($key)) {
             return $this->many($key);
@@ -162,7 +162,7 @@ class Repository implements ArrayAccess, CacheContract
     /**
      * {@inheritdoc}
      */
-    public function getMultiple($keys, $default = null)
+    public function getMultiple($keys, $default = null): array
     {
         $defaults = [];
 
@@ -195,7 +195,7 @@ class Repository implements ArrayAccess, CacheContract
      * @param null|\DateInterval|\DateTimeInterface|int $ttl
      * @return bool
      */
-    public function put($key, $value, $ttl = null)
+    public function put($key, $value, $ttl = null): bool
     {
         if (is_array($key)) {
             return $this->putMany($key, $value);
@@ -222,7 +222,7 @@ class Repository implements ArrayAccess, CacheContract
     /**
      * {@inheritdoc}
      */
-    public function set($key, $value, $ttl = null)
+    public function set($key, $value, $ttl = null): bool
     {
         return $this->put($key, $value, $ttl);
     }
@@ -259,7 +259,7 @@ class Repository implements ArrayAccess, CacheContract
     /**
      * {@inheritdoc}
      */
-    public function setMultiple($values, $ttl = null)
+    public function setMultiple($values, $ttl = null): bool
     {
         return $this->putMany(is_array($values) ? $values : iterator_to_array($values), $ttl);
     }
@@ -421,7 +421,7 @@ class Repository implements ArrayAccess, CacheContract
     /**
      * {@inheritdoc}
      */
-    public function delete($key)
+    public function delete($key): bool
     {
         return $this->forget($key);
     }
@@ -429,7 +429,7 @@ class Repository implements ArrayAccess, CacheContract
     /**
      * {@inheritdoc}
      */
-    public function deleteMultiple($keys)
+    public function deleteMultiple($keys): bool
     {
         $result = true;
 
@@ -445,7 +445,7 @@ class Repository implements ArrayAccess, CacheContract
     /**
      * {@inheritdoc}
      */
-    public function clear()
+    public function clear(): bool
     {
         return $this->store->flush();
     }
@@ -539,7 +539,7 @@ class Repository implements ArrayAccess, CacheContract
      * @param string $key
      * @return bool
      */
-    public function offsetExists($key)
+    public function offsetExists($key): bool
     {
         return $this->has($key);
     }
