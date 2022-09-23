@@ -5,7 +5,7 @@
 ## 安装
 
 ```
-composer require limingxinleo/i-cache
+composer require jmiy/i-cache
 ```
 
 ## 配置
